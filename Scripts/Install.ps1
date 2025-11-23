@@ -43,7 +43,7 @@ function CheckOrInstallSpotify {
 
     if ((Read-Host -Prompt "Do you want to install SpotX to block ads, updates, and enable extra client features? Y/N") -eq "y") {
         $flags = Read-Host -Prompt "Input any desired $(New-Hyperlink 'https://github.com/SpotX-Official/SpotX/discussions/60' 'SpotX parameters') (forced flags: -new_theme -block_update_on)"
-        $src = (Invoke-WebRequest "https://spotx-official.github.io/run.ps1" -UseBasicParsing).Content
+        $src = (Invoke-WebRequest "https://spotx-official.github.io/SpotX/run.ps1" -UseBasicParsing).Content
         $src = [System.Text.Encoding]::UTF8.GetString($src);
         Invoke-Expression "& { $src } $flags -new_theme -block_update_on -version $SpotifyVersionWithCommit"
     }
